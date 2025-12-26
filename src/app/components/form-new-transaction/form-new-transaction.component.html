@@ -1,0 +1,45 @@
+<main class="form-wrapper">
+	<form class="form" (ngSubmit)="onSubmit()" ngNativeValidate>
+		<h2 class="title">Nova transação</h2>
+		<div class="fields">
+			<label class="field-group">
+				Transação
+				<div class="select-wrapper">
+					<select 
+						name="transaction-type" 
+						class="field select-transaction-type"
+						[(ngModel)]="transactionType"
+						required>
+						<option value="" selected disabled>
+							Selecione o tipo de transação
+						</option>
+						@for(type of transactionTypeEnum | keyvalue; track type.key) {
+							<option [value]="type.value">{{type.value}}</option>
+						}
+					</select>
+				</div>
+			</label>
+			<label for="" class="field-group">
+				Valor
+				<div class="input-wrapper">
+					<input 
+						type="number" 
+						min="0.01"
+						step="0.01"
+						name="value"
+						placeholder="00.00"
+						class="field input-transaction-value"
+						[(ngModel)]="transactionValue"
+						#value = "ngModel"
+						required>
+				</div>
+			</label>
+			<small style="color: red;" *ngIf="transactionIsPossible()">
+				O saldo é insuficiente!
+			</small>
+			<button class="button-confirm-transaction">
+				Confirmar transação
+			</button>
+		</div>
+	</form>
+</main>

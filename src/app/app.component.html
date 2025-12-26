@@ -1,1 +1,9 @@
-<h1>SHAZAM!!!</h1>
+<div class="app">
+  <div class="banner-form-wrapper">
+    <app-banner [balance]="balance()"></app-banner>
+    <app-form-new-transaction 
+      (transactionCreated)="processTransaction($event)"
+      [transactionIsPossible]="insufficientBalance">
+    </app-form-new-transaction>
+  </div>
+</div>
