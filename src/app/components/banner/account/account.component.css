@@ -1,0 +1,28 @@
+.account {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.title {
+	font-size: 1.25rem;
+	font-weight: 600;
+	line-height: 120%
+}
+
+.divider {
+	height: 0.125rem;
+	background: var(--preto);
+}
+
+.account-type {
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: normal;
+}
+
+.balance {
+	font-size: 1.9375rem;
+	font-weight: 600;
+	line-height: 125%;
+}
